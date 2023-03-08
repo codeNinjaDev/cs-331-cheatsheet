@@ -63,14 +63,14 @@ then we set $d$ equal to it. We then finally return $d$. TC: $O(n*log(n)^2)$
 
 \section{Dynamic Programming}
 Break up a problem into a series of overlapping sub-problems and build up a solution to larger sub-problems.
-The basic idea behind many DP algorithms is to design a recurrence where we take the max/min of adding the current
+The basic idea behind many DP algorithms is to design a recurrence where we take the max/min of either including or excluding the current
 object to the result. When proving a DP algo, typically you prove 2 things: that the recurrence you choose is right, and 
 that your algorithm correctly implements the recurrence
 
 \subsection{Weighted Interval Scheduling}
 Same as interval scheduling problem except that each interval has a weight attached to it. 
 The recurrence $OPT(i) = max[OPT(v_i) + p_i, OPT(i - 1)]$ where $i$ is the $i^{th}$ router, $v(i)$
-is a function that returns the interval immeadeatly preceeding the $i^{th}$ interval without overlapping with it, 
+is a function that returns the interval immediately preceeding the $i^{th}$ interval without overlapping with it, 
 and $p_i$ is the weight of the $i^{th}$ interval. The runtime for this solution is $O(n)$ when $v(i)$ is 
 represented with a memoized array (see 2.2).
 
@@ -98,9 +98,9 @@ the length of each of the strings.
 \subsection{Bellman-Ford Algorithm}
 \begin{multicols}{2}
 Accomplishes the same thing as Djikstra's algorithms while also allowing for negative
-weight edges. The recurrence for solving this is on the right.
+weight edges (but not negative-weight cycles). The recurrence for solving this is on the right.
 Where $w$ represents an intermediate vertex, $c_{vw}$ represents the cost from going from $v$ to $w$,
-$v$ represents the starting vertex, and $i$ represents the length of the path. 
+$v$ represents the starting vertex, and $i$ represents the length of the path. Since there is at most a shortest path length (without cycles) of V - 1, the algorithm should terminate after V - 1 iterations.
 \columnbreak
 
 $OPT(n) = \begin{cases}
