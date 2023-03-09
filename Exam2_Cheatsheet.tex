@@ -122,7 +122,7 @@ The max flow problem represents a problem in which we want to find the maximum f
 
 \subsection{Ford-Fulkerson Algorithm}
 The Ford-Fulkerson Algorithm works by finding a simple path $p$ beetween $s$ and $t$, then finding
-the edge with the least capacity on that path and augmenting each node with that value.
+the edge with the least capacity ($b$) on that path and augmenting each node with This is done by constructing the residual graph $G_f$.  
 Note that you can go against the direction of an edge in the graph so long as you subtract when augmenting
 it's capacity.
 This is then repeated until no paths between $s$ and $t$ with a nonzero capacity exist. 
